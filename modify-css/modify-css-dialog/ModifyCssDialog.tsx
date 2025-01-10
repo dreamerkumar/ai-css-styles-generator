@@ -1,6 +1,7 @@
 import { useModifyCssDialog } from "./useModifyCssDialog";
 import React, { useRef } from "react";
 import { ModifyCss } from "../modify-css/ModifyCss";
+import { buttonStyles } from "../../utils/buttonStyles";
 
 export const ModifyCssDialog = () => {
   const textareaRef = useRef<HTMLTextAreaElement>(null);
@@ -59,8 +60,14 @@ export const ModifyCssDialog = () => {
           </button>
         </div>
       )}
-      <div className="button-container">
-        <button className="secondary-button" onClick={onCloseModifyCssDialog}>
+      <div>
+        <button
+          onClick={onCloseModifyCssDialog}
+          style={{
+            ...buttonStyles.base,
+            ...buttonStyles.secondary,
+          }}
+        >
           Cancel
         </button>
       </div>

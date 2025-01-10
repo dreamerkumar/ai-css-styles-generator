@@ -1,6 +1,7 @@
 import React from "react";
 import { useAICssGenerator } from "./useAICssGenerator";
 import { ErrorDisplay } from "./ErrorDisplay";
+import { buttonStyles } from "../../utils/buttonStyles";
 
 export const AICssGenerator = ({
   onCssGenerated,
@@ -96,26 +97,10 @@ export const AICssGenerator = ({
         }}
         disabled={notReadyForGenerateCall()}
         style={{
-          padding: "8px 16px",
-          backgroundColor: notReadyForGenerateCall()
-            ? "var(--sl-color-neutral-300)"
-            : "var(--sl-color-primary-600)",
-          color: notReadyForGenerateCall()
-            ? "var(--sl-color-neutral-600)"
-            : "white",
-          border: "none",
-          borderRadius: "var(--sl-border-radius-medium)",
+          ...buttonStyles.base,
+          ...buttonStyles.primary,
+          opacity: notReadyForGenerateCall() ? 0.6 : 1,
           cursor: notReadyForGenerateCall() ? "not-allowed" : "pointer",
-          transition: "all 0.2s ease",
-          boxShadow: notReadyForGenerateCall()
-            ? "none"
-            : "0 2px 4px rgba(0,0,0,0.1)",
-          opacity: notReadyForGenerateCall() ? 0.8 : 1,
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          gap: "8px",
-          minWidth: "120px",
         }}
       >
         {callInProgress ? (
