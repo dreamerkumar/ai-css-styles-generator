@@ -25,10 +25,10 @@ export const AICssGenerator = ({
       style={{
         display: "flex",
         flexDirection: "column",
-        gap: "var(--sl-spacing-medium)",
-        padding: "var(--sl-spacing-medium)",
-        border: "1px solid var(--sl-color-neutral-300)",
-        borderRadius: "var(--sl-border-radius-medium)",
+        gap: "var(--ai-spacing-medium)",
+        padding: "var(--ai-spacing-medium)",
+        border: "1px solid var(--ai-color-neutral-300)",
+        borderRadius: "var(--ai-border-radius-medium)",
         width: "450px",
         minWidth: "450px",
         maxWidth: "450px",
@@ -58,8 +58,8 @@ export const AICssGenerator = ({
           width: "100%",
           minHeight: "300px",
           padding: "8px",
-          borderRadius: "var(--sl-border-radius-medium)",
-          border: "1px solid var(--sl-color-neutral-300)",
+          borderRadius: "var(--ai-border-radius-medium)",
+          border: "1px solid var(--ai-color-neutral-300)",
           resize: "vertical",
         }}
       />

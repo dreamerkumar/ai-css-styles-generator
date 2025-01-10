@@ -12,10 +12,10 @@ const Column = styled.div`
   flex-direction: column;
   justify-content: start;
   align-items: start;
-  gap: var(--sl-spacing-small);
-  padding: var(--sl-spacing-medium);
-  border: 1px solid var(--sl-color-neutral-300);
-  border-radius: var(--sl-border-radius-medium);
+  gap: var(--ai-spacing-small);
+  padding: var(--ai-spacing-medium);
+  border: 1px solid var(--ai-color-neutral-300);
+  border-radius: var(--ai-border-radius-medium);
 `;
 
 interface ValidationResultProps {

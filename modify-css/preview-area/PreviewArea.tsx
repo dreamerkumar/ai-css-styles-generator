@@ -8,12 +8,12 @@ const Container = styled.div`
   height: 270px;
   max-height: 270px;
   overflow: auto;
-  border-radius: var(--sl-border-radius-medium);
+  border-radius: var(--ai-border-radius-medium);
   display: flex;
   flex-direction: column;
   justify-content: start;
   align-items: start;
-  padding: var(--sl-spacing-small);
+  padding: var(--ai-spacing-small);
 `;
 
 const PreviewDiv = styled.div<{ $cssString: string }>`
@@ -51,7 +51,7 @@ export const PreviewArea: React.FC<PreviewAreaProps> = ({
       style={{
         display: "flex",
         flexDirection: "column",
-        gap: "var(--sl-spacing-large)",
+        gap: "var(--ai-spacing-large)",
         width: "100%",
       }}
     >
@@ -77,7 +77,7 @@ export const PreviewArea: React.FC<PreviewAreaProps> = ({
           marginBlockStart: `0`,
           marginBlockEnd: `0`,
           paddingLeft: `10px`,
-          color: `var(--sl-color-neutral-700)`,
+          color: `var(--ai-color-neutral-700)`,
         }}
       >
         {validCssEntries.length && readyToSave
@@ -94,8 +94,8 @@ export const PreviewArea: React.FC<PreviewAreaProps> = ({
             style={{
               display: "flex",
               flexDirection: "column",
-              gap: "var(--sl-spacing-large)",
-              backgroundColor: "var(--sl-color-primary-100)",
+              gap: "var(--ai-spacing-large)",
+              backgroundColor: "var(--ai-color-primary-100)",
               padding: "10px",
             }}
           >
@@ -107,7 +107,7 @@ export const PreviewArea: React.FC<PreviewAreaProps> = ({
                   marginBlockStart: `0`,
                   marginBlockEnd: `0`,
                   paddingLeft: `10px`,
-                  color: `var(--sl-color-neutral-700)`,
+                  color: `var(--ai-color-neutral-700)`,
                 }}
               >
                 Won&apos;t be applied to the actual element

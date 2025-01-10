@@ -17,12 +17,12 @@ export const InvalidCssDisplay: React.FC<InvalidCssDisplayProps> = ({
         alignItems: `center`,
         maxHeight: `800px`,
         width: `100%`,
-        backgroundColor: `var(--sl-color-neutral-50)`,
-        fontFamily: `var(--sl-font-mono)`,
-        fontSize: `var(--sl-font-size-small)`,
+        backgroundColor: `var(--ai-color-neutral-50)`,
+        fontFamily: `var(--ai-font-mono)`,
+        fontSize: `var(--ai-font-size-small)`,
         whiteSpace: `pre-wrap`,
         overflow: `auto`,
-        color: `var(--sl-color-danger-600)`,
+        color: `var(--ai-color-danger-600)`,
       }}
     >
       <code>

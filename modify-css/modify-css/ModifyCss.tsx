@@ -28,9 +28,9 @@ export const ModifyCss = ({
         flexDirection: `row`,
         justifyContent: `start`,
         alignItems: `start`,
-        paddingLeft: `var(--sl-spacing-medium)`,
-        paddingRight: `var(--sl-spacing-medium)`,
-        gap: `var(--sl-spacing-large)`,
+        paddingLeft: `var(--ai-spacing-medium)`,
+        paddingRight: `var(--ai-spacing-medium)`,
+        gap: `var(--ai-spacing-large)`,
       }}
     >
       <CssInput
