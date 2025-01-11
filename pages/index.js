@@ -27,7 +27,7 @@ export default function Home() {
       </Head>
 
       <MainContent>
-        <h1>
+        <h1 style={{ textAlign: 'left', paddingLeft: '30px' }}>
           AI CSS Generator
         </h1>
         <ModifyCssContainer />
