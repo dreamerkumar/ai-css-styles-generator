@@ -1,4 +1,8 @@
 import React, { useEffect } from "react";
+import {
+  textAreaContainerStyles,
+  textAreaStyles,
+} from "../../utils/textAreaStyles";
 
 interface CssInputProps {
   onChangeCss: () => void;
@@ -18,36 +22,13 @@ export const CssInput: React.FC<CssInputProps> = ({
   }, [savedContainerCss, textareaRef]);
 
   return (
-    <div
-      style={{
-        display: `flex`,
-        justifyContent: `center`,
-        alignItems: `center`,
-        maxHeight: `800px`,
-        maxWidth: `600px`,
-        width: `600px`,
-        overflow: `auto`,
-      }}
-    >
+    <div style={textAreaContainerStyles}>
       <textarea
         ref={textareaRef}
         onChange={onChangeCss}
         onInput={onChangeCss}
         rows={30}
-        style={{
-          width: `100%`,
-          padding: `12px`,
-          fontSize: `14px`,
-          fontFamily: `monospace`,
-          lineHeight: `1.5`,
-          border: `1px solid #ccc`,
-          borderRadius: `6px`,
-          resize: `vertical`,
-          backgroundColor: `var(--ai-color-primary-900)`,
-          color: `var(--ai-color-primary-100)`,
-          outline: `none`,
-          transition: `border-color 0.2s, box-shadow 0.2s`,
-        }}
+        style={textAreaStyles}
         placeholder={`Enter CSS as key-value pairs on separate lines
 Examples:
 background-color: lightgrey;

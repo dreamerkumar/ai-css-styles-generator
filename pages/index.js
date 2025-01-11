@@ -7,11 +7,26 @@ import { ModifyCssContainer } from '../modify-css/modify-css-container/ModifyCss
 const PageContainer = styled.div`
   min-height: 100vh;
   width: 100%;
+  padding: var(--ai-spacing-small);
 `;
 
 const MainContent = styled.main`
-  margin: 0 auto;
-  padding: 2rem 1rem 0;
+`;
+
+const SubText = styled.p`
+  text-align: left;
+  font-size: 0.9rem;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+  
+  a {
+    color: var(--ai-color-secondary-300);
+    text-decoration: underline;
+    
+    &:hover {
+      color: var(--ai-color-secondary-200);
+    }
+  }
 `;
 
 export default function Home() {
@@ -27,9 +42,13 @@ export default function Home() {
       </Head>
 
       <MainContent>
-        <h1 style={{ textAlign: 'left', paddingLeft: '30px' }}>
+        <h1 style={{ textAlign: 'left' }}>
           AI CSS Generator
         </h1>
+        <SubText>
+          Built with ❤️ by the <a href="https://rulecms.com" target="_blank" rel="noopener noreferrer">RuleCMS</a> team. Looking for the next generation of CMS solutions? <a href="https://rulecms.com" target="_blank" rel="noopener noreferrer">Check us out</a>!
+        </SubText>
+
         <ModifyCssContainer />
       </MainContent>
     </PageContainer>

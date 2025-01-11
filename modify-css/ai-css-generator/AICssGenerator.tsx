@@ -3,32 +3,24 @@ import { useAICssGenerator } from "./useAICssGenerator";
 import { ErrorDisplay } from "./ErrorDisplay";
 import styled from "styled-components";
 import { StyledButton } from "../../utils/buttonStyles";
+import {
+  textAreaContainerStyles,
+  textAreaStyles,
+} from "../../utils/textAreaStyles";
 
 const Container = styled.div`
   display: flex;
   flex-direction: column;
   gap: var(--ai-spacing-medium);
   padding: var(--ai-spacing-medium);
-  border: 1px solid var(--ai-color-neutral-300);
+  border: 1px solid var(--ai-color-neutral-600);
   border-radius: var(--ai-border-radius-medium);
-  width: 450px;
-  min-width: 450px;
-  max-width: 450px;
 `;
 
 const HeaderContainer = styled.div`
   display: flex;
   align-items: center;
   gap: 8px;
-`;
-
-const StyledTextarea = styled.textarea`
-  width: 100%;
-  min-height: 300px;
-  padding: 8px;
-  border-radius: var(--ai-border-radius-medium);
-  border: 1px solid var(--ai-color-neutral-300);
-  resize: vertical;
 `;
 
 const RadioContainer = styled.div`
@@ -83,11 +75,14 @@ export const AICssGenerator = ({
         </svg>
         <h3 style={{ margin: 0 }}>AI CSS Generator</h3>
       </HeaderContainer>
-
-      <StyledTextarea
-        placeholder="Describe the CSS styles you want to generate..."
-        onChange={(e) => setPrompt(e.target.value)}
-      />
+      <div style={{ ...textAreaContainerStyles, maxWidth: "450px" }}>
+        <textarea
+          style={textAreaStyles}
+          rows={15}
+          placeholder="Describe the CSS styles you want to generate..."
+          onChange={(e) => setPrompt(e.target.value)}
+        />
+      </div>
       <RadioContainer>
         <RadioLabel>
           <input

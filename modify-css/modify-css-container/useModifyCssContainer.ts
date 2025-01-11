@@ -13,19 +13,20 @@ export const useModifyCssContainer = (initialCss: string[] = []) => {
     if (!cssText || typeof cssText !== "string" || cssText.length === 0) {
       setValidCssEntries([]);
       setInvalidCssEntries([]);
-      setReadyToUse(true);
-      return;
+      setReadyToUse(false);
+      return true;
     }
     const { isValid, error } = validateCss(cssText);
     if (isValid) {
       setValidCssEntries([cssText]);
       setInvalidCssEntries([]);
       setReadyToUse(true);
-      return;
+      return true;
     }
     setValidCssEntries([]);
     setInvalidCssEntries([error ?? "An error occurred while validating CSS"]);
     setReadyToUse(false);
+    return false;
   };
 
   const copyToClipboard = async () => {
@@ -33,11 +34,13 @@ export const useModifyCssContainer = (initialCss: string[] = []) => {
       if (validCssEntries.length > 0) {
         await navigator.clipboard.writeText(validCssEntries.join("\n"));
         console.log("CSS copied to clipboard");
+        return true;
       }
+      return false;
     } catch (error) {
       console.error("Failed to copy CSS to clipboard:", error);
+      return false;
     }
-    setReadyToUse(false);
   };
 
   return {
