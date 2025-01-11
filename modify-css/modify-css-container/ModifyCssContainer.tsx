@@ -39,9 +39,8 @@ export const ModifyCssContainer = () => {
       style={{
         display: "flex",
         flexDirection: "column",
-        gap: "10px",
+        gap: "20px",
         padding: "30px",
-        flexWrap: "wrap",
       }}
     >
       <ModifyCss

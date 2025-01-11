@@ -77,7 +77,6 @@ export const PreviewArea: React.FC<PreviewAreaProps> = ({
           marginBlockStart: `0`,
           marginBlockEnd: `0`,
           paddingLeft: `10px`,
-          color: `var(--ai-color-neutral-700)`,
         }}
       >
         {validCssEntries.length && readyToUse
@@ -95,7 +94,7 @@ export const PreviewArea: React.FC<PreviewAreaProps> = ({
               display: "flex",
               flexDirection: "column",
               gap: "var(--ai-spacing-large)",
-              backgroundColor: "var(--ai-color-primary-100)",
+              backgroundColor: "var(--ai-color-secondary-600)",
               padding: "10px",
             }}
           >
@@ -107,7 +106,6 @@ export const PreviewArea: React.FC<PreviewAreaProps> = ({
                   marginBlockStart: `0`,
                   marginBlockEnd: `0`,
                   paddingLeft: `10px`,
-                  color: `var(--ai-color-neutral-700)`,
                 }}
               >
                 Won&apos;t be applied to the actual element

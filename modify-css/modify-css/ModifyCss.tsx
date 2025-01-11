@@ -26,13 +26,13 @@ export const ModifyCss = ({
       style={{
         display: `flex`,
         flexDirection: `row`,
+        flexWrap: "wrap",
         justifyContent: `start`,
         alignItems: `start`,
-        paddingLeft: `var(--ai-spacing-medium)`,
-        paddingRight: `var(--ai-spacing-medium)`,
         gap: `var(--ai-spacing-large)`,
       }}
     >
+      <AICssGenerator onCssGenerated={onCssGenerated} />
       <CssInput
         onChangeCss={onChangeCss}
         savedContainerCss={savedContainerCss}
@@ -43,7 +43,6 @@ export const ModifyCss = ({
         validCssEntries={validCssEntries}
         invalidCssEntries={invalidCssEntries}
       />
-      <AICssGenerator onCssGenerated={onCssGenerated} />
     </div>
   );
 };

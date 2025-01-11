@@ -34,7 +34,20 @@ export const CssInput: React.FC<CssInputProps> = ({
         onChange={onChangeCss}
         onInput={onChangeCss}
         rows={30}
-        style={{ width: `100%` }}
+        style={{
+          width: `100%`,
+          padding: `12px`,
+          fontSize: `14px`,
+          fontFamily: `monospace`,
+          lineHeight: `1.5`,
+          border: `1px solid #ccc`,
+          borderRadius: `6px`,
+          resize: `vertical`,
+          backgroundColor: `var(--ai-color-primary-900)`,
+          color: `var(--ai-color-primary-100)`,
+          outline: `none`,
+          transition: `border-color 0.2s, box-shadow 0.2s`,
+        }}
         placeholder={`Enter CSS as key-value pairs on separate lines
 Examples:
 background-color: lightgrey;

@@ -16,6 +16,7 @@ const Column = styled.div`
   padding: var(--ai-spacing-medium);
   border: 1px solid var(--ai-color-neutral-300);
   border-radius: var(--ai-border-radius-medium);
+  background-color: var(--ai-color-primary-700);
 `;
 
 interface ValidationResultProps {
