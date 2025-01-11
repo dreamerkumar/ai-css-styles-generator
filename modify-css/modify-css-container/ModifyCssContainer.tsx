@@ -2,6 +2,7 @@ import { useModifyCssContainer } from "./useModifyCssContainer";
 import React, { useRef } from "react";
 import { ModifyCss } from "../modify-css/ModifyCss";
 import { StyledButton } from "../../utils/buttonStyles";
+import toast from "react-hot-toast";
 
 export const ModifyCssContainer = () => {
   const textareaRef = useRef<HTMLTextAreaElement>(null);
@@ -17,6 +18,15 @@ export const ModifyCssContainer = () => {
     content,
     setContent,
   } = useModifyCssContainer();
+
+  const copyToClipboardHandler = async () => {
+    const success = await copyToClipboard();
+    if (success) {
+      toast.success("CSS copied to clipboard");
+    } else {
+      toast.error("Failed to copy CSS to clipboard");
+    }
+  };
 
   const handleValidateAndPreview = () => {
     const cssValue = textareaRef.current?.value ?? "";
@@ -43,6 +53,7 @@ export const ModifyCssContainer = () => {
         display: "flex",
         flexDirection: "column",
         gap: "20px",
+        paddingBottom: `var(--ai-spacing-large)`,
       }}
     >
       <ModifyCss
@@ -63,7 +74,9 @@ export const ModifyCssContainer = () => {
         </StyledButton>
       )}
       {readyToUse && (
-        <StyledButton onClick={copyToClipboard}>Copy to Clipboard</StyledButton>
+        <StyledButton onClick={copyToClipboardHandler}>
+          Copy to Clipboard
+        </StyledButton>
       )}
     </div>
   );
