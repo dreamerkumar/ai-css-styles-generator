@@ -8,6 +8,7 @@ export const useModifyCssContainer = (initialCss: string[] = []) => {
   const [validCssEntries, setValidCssEntries] = useState<string[]>(initialCss);
   const [invalidCssEntries, setInvalidCssEntries] = useState<string[]>([]);
   const [readyToUse, setReadyToUse] = useState(false);
+  const [content, setContent] = useState("");
 
   const onValidateAndPreview = (cssText: string) => {
     if (!cssText || typeof cssText !== "string" || cssText.length === 0) {
@@ -44,6 +45,8 @@ export const useModifyCssContainer = (initialCss: string[] = []) => {
   };
 
   return {
+    content,
+    setContent,
     savedContainerCss: [],
     onValidateAndPreview,
     validCssEntries,

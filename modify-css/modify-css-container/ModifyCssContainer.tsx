@@ -14,6 +14,8 @@ export const ModifyCssContainer = () => {
     setReadyToUse,
     savedContainerCss,
     onCssGenerated,
+    content,
+    setContent,
   } = useModifyCssContainer();
 
   const handleValidateAndPreview = () => {
@@ -31,6 +33,7 @@ export const ModifyCssContainer = () => {
   };
 
   const onChangeCss = () => {
+    setContent(textareaRef.current?.value ?? "");
     setReadyToUse(false);
   };
 
@@ -52,7 +55,10 @@ export const ModifyCssContainer = () => {
         readyToUse={readyToUse}
       />
       {!readyToUse && (
-        <StyledButton onClick={handleValidateAndPreview}>
+        <StyledButton
+          onClick={handleValidateAndPreview}
+          disabled={content.length === 0}
+        >
           Validate and Preview
         </StyledButton>
       )}

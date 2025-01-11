@@ -15,12 +15,11 @@ export const ErrorDisplay: React.FC<ErrorDisplayProps> = ({ error }) => {
         alignItems: `center`,
         maxHeight: `800px`,
         width: `100%`,
+        maxWidth: `450px`,
         backgroundColor: `var(--ai-color-neutral-50)`,
         fontFamily: `var(--ai-font-mono)`,
-        fontSize: `var(--ai-font-size-small)`,
         whiteSpace: `pre-wrap`,
         overflow: `auto`,
-        color: `var(--ai-color-danger-600)`,
       }}
     >
       <code>
