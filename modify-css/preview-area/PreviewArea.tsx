@@ -22,12 +22,12 @@ const PreviewDiv = styled.div<{ $cssString: string }>`
 
 interface PreviewAreaProps {
   validCssEntries: string[];
-  readyToSave: boolean;
+  readyToUse: boolean;
 }
 
 export const PreviewArea: React.FC<PreviewAreaProps> = ({
   validCssEntries,
-  readyToSave,
+  readyToUse,
 }) => {
   const [useFixedSize, setUseFixedSize] = React.useState(true);
   const [usePadding, setUsePadding] = React.useState(true);
@@ -80,11 +80,11 @@ export const PreviewArea: React.FC<PreviewAreaProps> = ({
           color: `var(--ai-color-neutral-700)`,
         }}
       >
-        {validCssEntries.length && readyToSave
+        {validCssEntries.length && readyToUse
           ? "Your CSS styles are now applied to the preview box below"
           : "Add CSS styles and click 'Validate and Preview' to see them in action below"}
       </h5>
-      {readyToSave && (
+      {readyToUse && (
         <>
           <Container>
             <PreviewDiv $cssString={cssString}>{previewText}</PreviewDiv>

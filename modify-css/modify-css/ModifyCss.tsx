@@ -8,7 +8,7 @@ interface ModifyCssProps {
   textareaRef: React.RefObject<HTMLTextAreaElement>;
   validCssEntries: string[];
   invalidCssEntries: string[];
-  readyToSave: boolean;
+  readyToUse: boolean;
   onCssGenerated: (css: string, cssMode: "add" | "replace") => void;
 }
 
@@ -18,7 +18,7 @@ export const ModifyCss = ({
   textareaRef,
   validCssEntries,
   invalidCssEntries,
-  readyToSave,
+  readyToUse,
   onCssGenerated,
 }: ModifyCssProps) => {
   return (
@@ -39,7 +39,7 @@ export const ModifyCss = ({
         textareaRef={textareaRef}
       />
       <ValidationResult
-        readyToSave={readyToSave}
+        readyToUse={readyToUse}
         validCssEntries={validCssEntries}
         invalidCssEntries={invalidCssEntries}
       />

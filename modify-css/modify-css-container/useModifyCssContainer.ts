@@ -1,7 +1,7 @@
 import { useState } from "react";
 import validateCss from "../helpers/validate-css";
 
-export const useModifyCssDialog = (initialCss: string[] = []) => {
+export const useModifyCssContainer = (initialCss: string[] = []) => {
   const onCssGenerated = (css: string) => {
     onValidateAndPreview(css);
   };

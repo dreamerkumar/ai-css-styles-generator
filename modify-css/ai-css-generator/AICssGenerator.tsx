@@ -1,7 +1,52 @@
 import React from "react";
 import { useAICssGenerator } from "./useAICssGenerator";
 import { ErrorDisplay } from "./ErrorDisplay";
-import { buttonStyles } from "../../utils/buttonStyles";
+import styled from "styled-components";
+import { StyledButton } from "../../utils/buttonStyles";
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: var(--ai-spacing-medium);
+  padding: var(--ai-spacing-medium);
+  border: 1px solid var(--ai-color-neutral-300);
+  border-radius: var(--ai-border-radius-medium);
+  width: 450px;
+  min-width: 450px;
+  max-width: 450px;
+`;
+
+const HeaderContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 8px;
+`;
+
+const StyledTextarea = styled.textarea`
+  width: 100%;
+  min-height: 300px;
+  padding: 8px;
+  border-radius: var(--ai-border-radius-medium);
+  border: 1px solid var(--ai-color-neutral-300);
+  resize: vertical;
+`;
+
+const RadioContainer = styled.div`
+  display: flex;
+  gap: 16px;
+  align-items: center;
+`;
+
+const RadioLabel = styled.label`
+  display: flex;
+  align-items: center;
+  gap: 4px;
+`;
+
+const LoadingButton = styled(StyledButton)<{ $disabled: boolean }>`
+  opacity: ${(props) => (props.$disabled ? 0.6 : 1)};
+  cursor: ${(props) => (props.$disabled ? "not-allowed" : "pointer")};
+`;
 
 export const AICssGenerator = ({
   onCssGenerated,
@@ -21,20 +66,8 @@ export const AICssGenerator = ({
     return !prompt || prompt.length <= 0 || callInProgress;
   };
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        gap: "var(--ai-spacing-medium)",
-        padding: "var(--ai-spacing-medium)",
-        border: "1px solid var(--ai-color-neutral-300)",
-        borderRadius: "var(--ai-border-radius-medium)",
-        width: "450px",
-        minWidth: "450px",
-        maxWidth: "450px",
-      }}
-    >
-      <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+    <Container>
+      <HeaderContainer>
         <svg
           width="24"
           height="24"
@@ -49,22 +82,14 @@ export const AICssGenerator = ({
           <path d="M12 3a9 9 0 0 0 9 9 9 9 0 0 0-9 9 9 9 0 0 0-9-9 9 9 0 0 0 9-9z" />
         </svg>
         <h3 style={{ margin: 0 }}>AI CSS Generator</h3>
-      </div>
+      </HeaderContainer>
 
-      <textarea
+      <StyledTextarea
         placeholder="Describe the CSS styles you want to generate..."
         onChange={(e) => setPrompt(e.target.value)}
-        style={{
-          width: "100%",
-          minHeight: "300px",
-          padding: "8px",
-          borderRadius: "var(--ai-border-radius-medium)",
-          border: "1px solid var(--ai-color-neutral-300)",
-          resize: "vertical",
-        }}
       />
-      <div style={{ display: "flex", gap: "16px", alignItems: "center" }}>
-        <label style={{ display: "flex", alignItems: "center", gap: "4px" }}>
+      <RadioContainer>
+        <RadioLabel>
           <input
             type="radio"
             name="cssMode"
@@ -75,8 +100,8 @@ export const AICssGenerator = ({
           {/*
            */}
           Add to existing styles
-        </label>
-        <label style={{ display: "flex", alignItems: "center", gap: "4px" }}>
+        </RadioLabel>
+        <RadioLabel>
           <input
             type="radio"
             name="cssMode"
@@ -86,9 +111,9 @@ export const AICssGenerator = ({
           {/*
            */}
           Replace
-        </label>
-      </div>
-      <button
+        </RadioLabel>
+      </RadioContainer>
+      <LoadingButton
         onClick={async () => {
           const css = await generateCssFromPrompt();
           if (css) {
@@ -96,12 +121,7 @@ export const AICssGenerator = ({
           }
         }}
         disabled={notReadyForGenerateCall()}
-        style={{
-          ...buttonStyles.base,
-          ...buttonStyles.primary,
-          opacity: notReadyForGenerateCall() ? 0.6 : 1,
-          cursor: notReadyForGenerateCall() ? "not-allowed" : "pointer",
-        }}
+        $disabled={notReadyForGenerateCall()}
       >
         {callInProgress ? (
           <svg
@@ -134,9 +154,9 @@ export const AICssGenerator = ({
         ) : (
           "Generate CSS"
         )}
-      </button>
+      </LoadingButton>
       {callInProgress && <div>Generating CSS...</div>}
       {!callInProgress && error && <ErrorDisplay error={error} />}
-    </div>
+    </Container>
   );
 };

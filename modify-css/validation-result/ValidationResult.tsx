@@ -21,13 +21,13 @@ const Column = styled.div`
 interface ValidationResultProps {
   validCssEntries: string[];
   invalidCssEntries: string[];
-  readyToSave: boolean;
+  readyToUse: boolean;
 }
 
 export const ValidationResult: React.FC<ValidationResultProps> = ({
   validCssEntries,
   invalidCssEntries,
-  readyToSave,
+  readyToUse,
 }) => {
   return (
     <Column>
@@ -35,7 +35,7 @@ export const ValidationResult: React.FC<ValidationResultProps> = ({
       {invalidCssEntries.length <= 0 && (
         <PreviewArea
           validCssEntries={validCssEntries}
-          readyToSave={readyToSave}
+          readyToUse={readyToUse}
         />
       )}
     </Column>

@@ -1,9 +1,9 @@
-import { useModifyCssDialog } from "./useModifyCssDialog";
+import { useModifyCssContainer } from "./useModifyCssContainer";
 import React, { useRef } from "react";
 import { ModifyCss } from "../modify-css/ModifyCss";
 import { StyledButton } from "../../utils/buttonStyles";
 
-export const ModifyCssDialog = () => {
+export const ModifyCssContainer = () => {
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   const {
     copyToClipboard,
@@ -14,7 +14,7 @@ export const ModifyCssDialog = () => {
     setReadyToUse,
     savedContainerCss,
     onCssGenerated,
-  } = useModifyCssDialog();
+  } = useModifyCssContainer();
 
   const handleValidateAndPreview = () => {
     const cssValue = textareaRef.current?.value ?? "";
